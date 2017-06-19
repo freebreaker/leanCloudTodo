@@ -1,0 +1,16 @@
+.TodoInput{
+   outline: none;
+   width: 96%;
+   line-height: 2.6;
+   background-color:#FFEDE7;
+   color: #f76333;
+   margin: 0.8em 1em 0.8em 1em;
+   font-size: 16px;
+   /*padding: 0.5em;*/
+   padding-left: 0.9em;
+   border:none;
+}
+
+input::-webkit-input-placeholder{
+   color: #f76333;
+}
