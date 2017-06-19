@@ -2,6 +2,7 @@
   "name": "hello-world",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://freebreaker.github.io/leanCloudTodo/build",
   "dependencies": {
     "leancloud-storage": "^2.5.0",
     "react": "^15.5.4",
