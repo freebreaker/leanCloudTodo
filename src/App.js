@@ -41,40 +41,45 @@ class App extends Component {
     return (
       <div className='App'>
 
-        {/*{this.state.user.id ? null : <UserDialog onSignUp={this.onSignUpOrSignIn.bind(this)}
-          onSignIn={this.onSignUpOrSignIn.bind(this)}/>}*/}
+        {this.state.user.id ? null : <UserDialog onSignUp={this.onSignUpOrSignIn.bind(this)}
+          onSignIn={this.onSignUpOrSignIn.bind(this)}/>}
 
           {this.state.user.id ? 
             <SideBar signOut={this.signOut.bind(this)}/>
           : null}
 
-          {this.props.children || <Home/>}
+          {this.state.user.id ?
+          <div className="home">
+              {this.props.children || <Home/>}
+          </div>
+          : null}
+
       </div>   
     );
   }
 
 
 
-//   onSignUpOrSignIn(user){
-//       let stateCopy = JSON.parse(JSON.stringify(this.state)) 
-//       stateCopy.user = user
-//       this.setState(stateCopy)
+  onSignUpOrSignIn(user){
+      let stateCopy = JSON.parse(JSON.stringify(this.state)) 
+      stateCopy.user = user
+      this.setState(stateCopy)
 
-//       if (user) {
-//         TodoModel.getByUser(user, (todos) => {
-//           let stateCopy = JSON.parse(JSON.stringify(this.state))
-//           stateCopy.todoList = todos
-//           this.setState(stateCopy)
-//         })
+      if (user) {
+        TodoModel.getByUser(user, (todos) => {
+          let stateCopy = JSON.parse(JSON.stringify(this.state))
+          stateCopy.todoList = todos
+          this.setState(stateCopy)
+        })
 
-//         TodoModel.getByUser(user, (newtodos) => {
-//           let stateCopy = JSON.parse(JSON.stringify(this.state))
-//           stateCopy.newTodoList = newtodos
-//           this.setState(stateCopy)
-//         })
+        TodoModel.getByUser(user, (newtodos) => {
+          let stateCopy = JSON.parse(JSON.stringify(this.state))
+          stateCopy.newTodoList = newtodos
+          this.setState(stateCopy)
+        })
       
-//       }
-//   }
+      }
+  }
 
 
    signOut(){

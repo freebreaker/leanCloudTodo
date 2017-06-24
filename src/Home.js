@@ -74,14 +74,14 @@ class Home extends Component {
       <div className='Home'>
 
 
-          {this.state.user.id ? null : <UserDialog onSignUp={this.onSignUpOrSignIn.bind(this)}
+          {/*{this.state.user.id ? null : <UserDialog onSignUp={this.onSignUpOrSignIn.bind(this)}
           onSignIn={this.onSignUpOrSignIn.bind(this)}/>}
 
           {this.state.user.id ? 
             <SideBar signOut={this.signOut.bind(this)}/>
-          : null}
+          : null}*/}
 
-          {this.state.user.id ? 
+          {/*{this.state.user.id ? */}
           <div className="TodoContent">
               <TodoInput  content={this.state.newTodo}
               onChange={this.changeInfo.bind(this)}
@@ -91,9 +91,9 @@ class Home extends Component {
                 {todos}
               </ol>
           </div>
-          : null}
+          {/*: null}*/}
 
-          {this.state.user.id ? 
+          {/*{this.state.user.id ? */}
           <div className="TodoContent">
               <TodoInputs  content={this.state.anotherTodo}
               onChange={this.changeAnotherInfo.bind(this)}
@@ -103,7 +103,7 @@ class Home extends Component {
                 {newtodos}
               </ol>
           </div>
-          : null}  
+          {/*: null}  */}
 
           {/*{this.state.user.id ?
           <div className="TodoContent">
