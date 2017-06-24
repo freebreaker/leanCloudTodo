@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import './sideBar.css';
 import {getCurrentUser,signOut} from './leanCloud';
-
+import { Router, Route, hashHistory ,Link} from 'react-router'
 export default class SideBar extends Component{
     constructor(props){
        super(props)
@@ -19,10 +19,9 @@ export default class SideBar extends Component{
     render(){
         let leftSide=(
             <div className="sideBar">
-                    <a className="item" href="">任务</a>
+                    <Link to="/">任务</Link>
                     <a className="item" href="" onClick={this.props.signOut.bind(this)}>登出</a>
-                    <a className="item" href="">已完成</a>
-                    <a className="item" href="">分享</a>
+                    <Link to="/completed">已完成</Link>
             </div>
 
         )

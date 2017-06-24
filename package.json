@@ -6,7 +6,8 @@
   "dependencies": {
     "leancloud-storage": "^2.5.0",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+ "react-router": "^2.0.0"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"

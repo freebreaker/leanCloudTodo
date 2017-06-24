@@ -12,7 +12,7 @@ import TodoItems from './TodoItems';
 
 
 
-class App extends Component {
+class Completed extends Component {
   constructor(props){
     super(props)
     this.state={
@@ -43,21 +43,6 @@ class App extends Component {
 
   render() {
 
-    let todos=this.state.todoList.filter((item)=> !item.deleted && item.direction==="left").map((item,index)=>{
-      return (<li key={index}>   
-               <TodoItem todo={item} onToggle={this.toggle.bind(this)} 
-               onDelete={this.delete.bind(this)}/>
-            </li>)
-    })
-
-
-    let newtodos=this.state.todoList.filter((item)=> !item.deleted && item.direction==="right").map((item,index)=>{
-      return (<li key={index}>   
-               <TodoItems todo={item} onToggle={this.toggle.bind(this)} 
-               onDelete={this.delete.bind(this)}/>
-            </li>)
-    })
-
 
     let completedTodos=this.state.todoList.filter((item)=>!item.deleted && item.status==='completed').map((item,index)=>{
       return (<li key={index}>   
@@ -73,40 +58,9 @@ class App extends Component {
     return (
       <div className='App'>
 
-          {this.state.user.id ? null : <UserDialog onSignUp={this.onSignUpOrSignIn.bind(this)}
-          onSignIn={this.onSignUpOrSignIn.bind(this)}/>}
+          {/*{this.state.user.id ? null : <UserDialog onSignUp={this.onSignUpOrSignIn.bind(this)}
+          onSignIn={this.onSignUpOrSignIn.bind(this)}/>}*/}
 
-          {this.state.user.id ? 
-            <SideBar signOut={this.signOut.bind(this)}/>
-          : null}
-
-          <div>
-            {this.props.children}
-          </div>
-
-          {/*{this.state.user.id ? 
-          <div className="TodoContent">
-              <TodoInput  content={this.state.newTodo}
-              onChange={this.changeInfo.bind(this)}
-              onSubmit={this.addTodo.bind(this)}/>
-
-              <ol className="TodoItem">
-                {todos}
-              </ol>
-          </div>
-          : null}
-
-          {this.state.user.id ? 
-          <div className="TodoContent">
-              <TodoInputs  content={this.state.anotherTodo}
-              onChange={this.changeAnotherInfo.bind(this)}
-              onSubmit={this.addIpTodo.bind(this)}/>
-
-              <ol className="TodoItem">
-                {newtodos}
-              </ol>
-          </div>
-          : null}
 
           {this.state.user.id ?
           <div className="TodoContent">
@@ -114,7 +68,7 @@ class App extends Component {
                 {completedTodos}
               </ol>
           </div>
-          : null}*/}
+          : null}
 
           
       </div>   
@@ -244,5 +198,5 @@ class App extends Component {
     //   localStore.save('todoList', this.state.todoList)
     // }
 }
-export default App;
+export default Completed;
  

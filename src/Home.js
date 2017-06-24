@@ -12,7 +12,7 @@ import TodoItems from './TodoItems';
 
 
 
-class App extends Component {
+class Home extends Component {
   constructor(props){
     super(props)
     this.state={
@@ -59,32 +59,28 @@ class App extends Component {
     })
 
 
-    let completedTodos=this.state.todoList.filter((item)=>!item.deleted && item.status==='completed').map((item,index)=>{
+    /*let completedTodos=this.state.todoList.filter((item)=>!item.deleted && item.status==='completed').map((item,index)=>{
       return (<li key={index}>   
                <TodoItems todo={item} onToggle={this.toggle.bind(this)} 
                onDelete={this.delete.bind(this)}/>
             </li>)
     })
 
-    console.log(completedTodos)
+    console.log(completedTodos)*/
 
 
 
     return (
       <div className='App'>
 
-          {this.state.user.id ? null : <UserDialog onSignUp={this.onSignUpOrSignIn.bind(this)}
-          onSignIn={this.onSignUpOrSignIn.bind(this)}/>}
-
-          {this.state.user.id ? 
-            <SideBar signOut={this.signOut.bind(this)}/>
-          : null}
-
-          <div>
-            {this.props.children}
-          </div>
+          {/*{this.state.user.id ? null : <UserDialog onSignUp={this.onSignUpOrSignIn.bind(this)}
+          onSignIn={this.onSignUpOrSignIn.bind(this)}/>}*/}
 
           {/*{this.state.user.id ? 
+            <SideBar signOut={this.signOut.bind(this)}/>
+          : null}*/}
+
+          {this.state.user.id ? 
           <div className="TodoContent">
               <TodoInput  content={this.state.newTodo}
               onChange={this.changeInfo.bind(this)}
@@ -102,13 +98,13 @@ class App extends Component {
               onChange={this.changeAnotherInfo.bind(this)}
               onSubmit={this.addIpTodo.bind(this)}/>
 
-              <ol className="TodoItem">
+              <ol className="TodoItem">  
                 {newtodos}
               </ol>
           </div>
-          : null}
+          : null}  
 
-          {this.state.user.id ?
+          {/*{this.state.user.id ?
           <div className="TodoContent">
               <ol className="TodoItem">
                 {completedTodos}
@@ -244,5 +240,5 @@ class App extends Component {
     //   localStore.save('todoList', this.state.todoList)
     // }
 }
-export default App;
+export default Home;
  
