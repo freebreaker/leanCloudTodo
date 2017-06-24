@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import UserDialog from './UserDialog';
+// import UserDialog from './UserDialog';
 import {getCurrentUser,signOut,TodoModel} from './leanCloud';
-import SideBar from './sideBar';
-import TodoInput from './TodoInput';
-import TodoInputs from './TodoInputs';
+// import SideBar from './sideBar';
+// // import TodoInput from './TodoInput';
+// // import TodoInputs from './TodoInputs';
 import TodoItem from './TodoItem';
 import TodoItems from './TodoItems';
 
@@ -68,7 +68,8 @@ class Completed extends Component {
                 {completedTodos}
               </ol>
           </div>
-          : null}
+          : null} 
+
 
           
       </div>   
@@ -77,72 +78,72 @@ class Completed extends Component {
 
 
 
-  onSignUpOrSignIn(user){
-      let stateCopy = JSON.parse(JSON.stringify(this.state)) 
-      stateCopy.user = user
-      this.setState(stateCopy)
+//   onSignUpOrSignIn(user){
+//       let stateCopy = JSON.parse(JSON.stringify(this.state)) 
+//       stateCopy.user = user
+//       this.setState(stateCopy)
 
-      if (user) {
-        TodoModel.getByUser(user, (todos) => {
-          let stateCopy = JSON.parse(JSON.stringify(this.state))
-          stateCopy.todoList = todos
-          this.setState(stateCopy)
-        })
+//       if (user) {
+//         TodoModel.getByUser(user, (todos) => {
+//           let stateCopy = JSON.parse(JSON.stringify(this.state))
+//           stateCopy.todoList = todos
+//           this.setState(stateCopy)
+//         })
 
-        TodoModel.getByUser(user, (newtodos) => {
-          let stateCopy = JSON.parse(JSON.stringify(this.state))
-          stateCopy.newTodoList = newtodos
-          this.setState(stateCopy)
-        })
+//         TodoModel.getByUser(user, (newtodos) => {
+//           let stateCopy = JSON.parse(JSON.stringify(this.state))
+//           stateCopy.newTodoList = newtodos
+//           this.setState(stateCopy)
+//         })
       
-      }
-  }
+//       }
+//   }
 
-  changeInfo(e){
-    this.setState({
-      newTodo:e.target.value,
-      todoList:this.state.todoList
-    })
-  }
+//   changeInfo(e){
+//     this.setState({
+//       newTodo:e.target.value,
+//       todoList:this.state.todoList
+//     })
+//   }
 
-  changeAnotherInfo(e){
-    this.setState({
-      anotherTodo:e.target.value,
-      todoList:this.state.todoList
-    })
-  }
+//   changeAnotherInfo(e){
+//     this.setState({
+//       anotherTodo:e.target.value,
+//       todoList:this.state.todoList
+//     })
+//   }
 
-   addTodo(event){
-    let newTodo = {
-        title: event.target.value,
-        status:'',
-        deleted: false,
-        direction:'left'
-    }
-    // this.setState({
-    //     newTodo: '',
-    //     todoList: this.state.todoList
-    //   })
-    //   console.log(this.state.todoList)
-    TodoModel.create(newTodo, (id) => {
-        newTodo.id = id
-        this.state.todoList.push(newTodo)
-        this.setState({
-          newTodo: '',
-          todoList: this.state.todoList
-        })
-      }, (error) => {
-        console.log(error)
-      })
-  }
+//    addTodo(event){
+//     let newTodo = {
+//         title: event.target.value,
+//         status:'',
+//         deleted: false,
+//         direction:'left'
+//     }
+//     // this.setState({
+//     //     newTodo: '',
+//     //     todoList: this.state.todoList
+//     //   })
+//     //   console.log(this.state.todoList)
+//     TodoModel.create(newTodo, (id) => {
+//         newTodo.id = id
+//         this.state.todoList.push(newTodo)
+//         this.setState({
+//           newTodo: '',
+//           todoList: this.state.todoList
+//         })
+//       }, (error) => {
+//         console.log(error)
+//       })
+//   }
 
-  addIpTodo(e){
-    let IpTodo={
-      title:e.target.value,
-      status:'',
-      deleted:false,
-      direction:'right'
-    }
+//   addIpTodo(e){
+//     let IpTodo={
+//       title:e.target.value,
+//       status:'',
+//       deleted:false,
+//       direction:'right'
+//     }
 
     // TodoModel.create(IpTodo, (id) => {
     //   IpTodo.id = id
@@ -154,17 +155,17 @@ class Completed extends Component {
     // }, (error) => {
     //   console.log(error)
     // })
-        TodoModel.create(IpTodo, (id) => {
-        IpTodo.id = id
-        this.state.todoList.push(IpTodo)
-        this.setState({
-          newTodo: '',
-          todoList: this.state.todoList
-        })
-      }, (error) => {
-        console.log(error)
-      })
-  }
+    //         TodoModel.create(IpTodo, (id) => {
+    //         IpTodo.id = id
+    //         this.state.todoList.push(IpTodo)
+    //         this.setState({
+    //         newTodo: '',
+    //         todoList: this.state.todoList
+    //         })
+    //     }, (error) => {
+    //         console.log(error)
+    //     })
+    // }
 
     delete(event, todo){
         // todo.deleted = true
@@ -187,12 +188,12 @@ class Completed extends Component {
         this.setState(this.state)
       })
     }
-   signOut(){
-      signOut()
-      let stateCopy = JSON.parse(JSON.stringify(this.state))
-      stateCopy.user = {}
-      this.setState(stateCopy)
-    }
+//    signOut(){
+//       signOut()
+//       let stateCopy = JSON.parse(JSON.stringify(this.state))
+//       stateCopy.user = {}
+//       this.setState(stateCopy)
+//     }
 
     // componentDidUpdate(){
     //   localStore.save('todoList', this.state.todoList)

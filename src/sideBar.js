@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import './sideBar.css';
-import {getCurrentUser,signOut} from './leanCloud';
-import { Router, Route, hashHistory ,Link} from 'react-router'
+// import {getCurrentUser,signOut} from './leanCloud';
+import {Link} from 'react-router'
 export default class SideBar extends Component{
     constructor(props){
        super(props)

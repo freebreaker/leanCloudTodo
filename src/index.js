@@ -6,13 +6,13 @@ import Home from './Home';
 import Completed from './Completed'
 import { render } from 'react-dom'
 
-import { Router, Route, hashHistory ,IndexRoute} from 'react-router'
+import { Router, Route, hashHistory ,IndexRoute,IndexRedirect} from 'react-router'
 
 render((
 <Router history={hashHistory}>
   <Route path="/" component={App}>
     <IndexRoute component={Home}/>
-    <Route path="/completed" component={Completed}/>
+    <Route path="completed" component={Completed}/>
     
   </Route>
 </Router>

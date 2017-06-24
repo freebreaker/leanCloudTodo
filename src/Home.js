@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from './logo.svg';                                       
 import UserDialog from './UserDialog';
+import './Home.css';
 import {getCurrentUser,signOut,TodoModel} from './leanCloud';
 import SideBar from './sideBar';
 import TodoInput from './TodoInput';
@@ -32,11 +32,11 @@ class Home extends Component {
           this.setState(stateCopy)
         })
 
-          TodoModel.getByUser(user, (newtodos) => {
-          let stateCopy = JSON.parse(JSON.stringify(this.state))
-          stateCopy.newTodoList = newtodos
-          this.setState(stateCopy)
-        })
+        //   TodoModel.getByUser(user, (newtodos) => {
+        //   let stateCopy = JSON.parse(JSON.stringify(this.state))
+        //   stateCopy.newTodoList = newtodos
+        //   this.setState(stateCopy)
+        // })
       }
   }
 
@@ -71,14 +71,15 @@ class Home extends Component {
 
 
     return (
-      <div className='App'>
+      <div className='Home'>
 
-          {/*{this.state.user.id ? null : <UserDialog onSignUp={this.onSignUpOrSignIn.bind(this)}
-          onSignIn={this.onSignUpOrSignIn.bind(this)}/>}*/}
 
-          {/*{this.state.user.id ? 
+          {this.state.user.id ? null : <UserDialog onSignUp={this.onSignUpOrSignIn.bind(this)}
+          onSignIn={this.onSignUpOrSignIn.bind(this)}/>}
+
+          {this.state.user.id ? 
             <SideBar signOut={this.signOut.bind(this)}/>
-          : null}*/}
+          : null}
 
           {this.state.user.id ? 
           <div className="TodoContent">
